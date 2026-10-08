@@ -21,6 +21,7 @@
 
   --radius: 1.5rem;
   --space: 1rem;
+  --shadow: 0 10px 25px rgba(27, 27, 31, 0.18);
 }
 
 html {
@@ -120,8 +121,8 @@ ul {
   padding: 3rem 1.5rem;
   color: var(--color-cream);
   background-image:
-    linear-gradient(rgba(27, 27, 31, 0.45), rgba(27, 27, 31, 0.45)),
-    url("images/hero.png");
+    linear-gradient(rgba(27, 27, 31, 0.514), rgb(29 27 31 / 8%)),
+    url(images/hero.png);
   background-size: cover;
   background-position: center;
 }
@@ -137,13 +138,15 @@ ul {
 }
 
 .tour-card {
+  position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
   background-color: var(--color-white);
   padding: 0.9rem 0.9rem 1.5rem;
   border-radius: 4px;
-  box-shadow: 0 10px 25px rgba(27, 27, 31, 0.18);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
 }
 
 .tour-card img {
@@ -152,10 +155,6 @@ ul {
   object-fit: cover;
   border-radius: 2px;
   filter: saturate(1.1) contrast(1.05);
-}
-
-.tour-card {
-  position: relative;
 }
 
 .tour-card::before {
@@ -176,10 +175,6 @@ ul {
 
 .tour-grid li:nth-child(even) .tour-card {
   transform: rotate(1.5deg);
-}
-
-.tour-card {
-  transition: transform 0.25s ease;
 }
 
 .tour-grid li .tour-card:hover {
@@ -210,16 +205,6 @@ ul {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-}
-
-.testimonial {
-  flex: 1 1 260px;
-  margin: 0;
-}
-
-.plan {
-  padding-block: 5rem;
-  text-align: center;
 }
 
 .plan .container {
@@ -256,12 +241,13 @@ ul {
 }
 
 .testimonial {
+  position: relative;
   flex: 1 1 260px;
   margin: 0;
   padding: 1.75rem 1.5rem;
   background-color: var(--color-sun);
   color: var(--color-ink);
-border-radius: 4px;
+  border-radius: 4px;
   box-shadow: var(--shadow);
   transition: transform 0.25s ease;
 }
@@ -300,9 +286,6 @@ border-radius: 4px;
   transform: rotate(0) scale(1.03);
 }
 
-.testimonial {
-  position: relative;
-}
 
 .testimonial::before {
   content: "";
@@ -367,3 +350,48 @@ a:focus-visible {
   outline: 3px solid var(--color-electric);
   outline-offset: 3px;
 }
+
+a:hover{
+    text-decoration: underline;
+}
+
+.plan {
+  position: relative;
+  overflow: hidden;
+  padding-block: 5rem;
+  text-align: center;
+}
+
+.confetti span {
+  position: absolute;
+  top: -20px;
+  width: 10px;
+  height: 16px;
+  background-color: var(--color-sun);
+  opacity: 0;
+  transform: translateY(520px) rotate(720deg);
+  transition:
+    transform 2.2s ease-in,
+    opacity 2.2s ease-in;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body:has(.cta:active) .confetti span {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+    transition: none;
+  }
+}
+
+.confetti span:nth-child(1) { left: 8%; transition-delay: 0.1s; }
+.confetti span:nth-child(2) { left: 16%; transition-delay: 0.5s; background-color: var(--color-coral); }
+.confetti span:nth-child(3) { left: 25%; transition-delay: 0.2s; background-color: var(--color-electric); }
+.confetti span:nth-child(4) { left: 33%; transition-delay: 0.7s; background-color: var(--color-forest); }
+.confetti span:nth-child(5) { left: 41%; transition-delay: 0s; background-color: var(--color-coral); }
+.confetti span:nth-child(6) { left: 49%; transition-delay: 0.4s; }
+.confetti span:nth-child(7) { left: 57%; transition-delay: 0.8s; background-color: var(--color-electric); }
+.confetti span:nth-child(8) { left: 65%; transition-delay: 0.15s; background-color: var(--color-forest); }
+.confetti span:nth-child(9) { left: 73%; transition-delay: 0.6s; background-color: var(--color-coral); }
+.confetti span:nth-child(10) { left: 80%; transition-delay: 0.3s; }
+.confetti span:nth-child(11) { left: 87%; transition-delay: 0.9s; background-color: var(--color-electric); }
+.confetti span:nth-child(12) { left: 93%; transition-delay: 0.25s; background-color: var(--color-coral); }
