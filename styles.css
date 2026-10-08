@@ -11,11 +11,13 @@
   --color-electric: #3d5afe;
   --color-cream: #fff8ec;
   --color-ink: #1b1b1f;
+  --color-white: #fdfcf8;
 
   --color-background: rgb(245, 242, 235);
 
   --font-heading: "Fredoka", sans-serif;
   --font-body: "Nunito", sans-serif;
+  --font-hand: "Caveat", cursive;
 
   --radius: 1.5rem;
   --space: 1rem;
@@ -49,7 +51,8 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+  font-family: var(--font-hand);
 }
 
 a {
@@ -121,4 +124,246 @@ ul {
     url("images/hero.png");
   background-size: cover;
   background-position: center;
+}
+
+.tours {
+  padding-block: 4rem;
+}
+
+.tour-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 5rem;
+}
+
+.tour-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  padding: 0.9rem 0.9rem 1.5rem;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(27, 27, 31, 0.18);
+}
+
+.tour-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 2px;
+  filter: saturate(1.1) contrast(1.05);
+}
+
+.tour-card {
+  position: relative;
+}
+
+.tour-card::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 90px;
+  height: 26px;
+  background-color: var(--color-sun);
+  opacity: 0.75;
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+.tour-grid li:nth-child(odd) .tour-card {
+  transform: rotate(-1.5deg);
+}
+
+.tour-grid li:nth-child(even) .tour-card {
+  transform: rotate(1.5deg);
+}
+
+.tour-card {
+  transition: transform 0.25s ease;
+}
+
+.tour-grid li .tour-card:hover {
+  transform: rotate(0) translateY(-6px);
+}
+
+.tour-meta {
+  color: var(--color-coral);
+  border-radius: 10px;
+  font-size: 1.3em;
+  background-color: var(--color-cream);
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+.tour-price {
+  text-decoration: underline;
+}
+
+.testimonials {
+  padding-block: 4rem;
+  background-color: var(--color-forest);
+  color: var(--color-cream);
+}
+
+.testimonial-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.testimonial {
+  flex: 1 1 260px;
+  margin: 0;
+}
+
+.plan {
+  padding-block: 5rem;
+  text-align: center;
+}
+
+.plan .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.cta-title {
+  margin: 10px;
+}
+
+.cta-p {
+  max-width: 50ch;
+}
+
+.cta--large {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+}
+
+.testimonial figcaption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.testimonial img {
+  width: clamp(100px, 10vw, 200px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial {
+  flex: 1 1 260px;
+  margin: 0;
+  padding: 1.75rem 1.5rem;
+  background-color: var(--color-sun);
+  color: var(--color-ink);
+border-radius: 4px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+
+.testimonial blockquote {
+  margin: 0 0 1.25rem;
+  font-size: 1.15rem;
+  margin-top: 15px;
+}
+
+.testimonial blockquote p {
+  margin: 0;
+}
+
+.testimonial figcaption {
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.testimonial:nth-child(1) {
+  transform: rotate(-2deg);
+}
+
+.testimonial:nth-child(2) {
+  background-color: var(--color-coral);
+  color: var(--color-cream);
+  transform: rotate(1.5deg);
+}
+
+.testimonial:nth-child(3) {
+  background-color: var(--color-cream);
+  transform: rotate(-1deg);
+}
+
+.testimonial:hover {
+  transform: rotate(0) scale(1.03);
+}
+
+.testimonial {
+  position: relative;
+}
+
+.testimonial::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-electric);
+  box-shadow: 0 3px 4px rgba(27, 27, 31, 0.3);
+  transform: translateX(-50%);
+}
+
+.site-footer {
+  padding-block: 2rem;
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+}
+
+.site-footer .container,
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .site-header {
+    padding-inline: 3rem;
+  }
+
+  .hero {
+    padding: 5rem 3rem;
+  }
+
+  .tours,
+  .testimonials {
+    padding-block: 3rem;
+  }
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .hero {
+    background-attachment: fixed;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
+
+a:focus-visible {
+  outline: 3px solid var(--color-electric);
+  outline-offset: 3px;
 }
