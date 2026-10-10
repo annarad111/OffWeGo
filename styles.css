@@ -395,3 +395,25 @@ a:hover{
 .confetti span:nth-child(10) { left: 80%; transition-delay: 0.3s; }
 .confetti span:nth-child(11) { left: 87%; transition-delay: 0.9s; background-color: var(--color-electric); }
 .confetti span:nth-child(12) { left: 93%; transition-delay: 0.25s; background-color: var(--color-coral); }
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1,
+  .hero .cta {
+    animation: rise-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  .hero .cta {
+    animation-delay: 0.35s;
+  }
+}
